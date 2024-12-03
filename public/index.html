@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaluca Games Studio</title>
+    <!-- Ruta correcta a los estilos globales -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Ruta correcta al JavaScript principal -->
+    <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/logo-with-name.webp" alt="Kaluca Logo" />
+        </div>
+        <nav class="nav-buttons">
+            <button data-target="games-preview">Our Games</button>
+            <button data-target="carousel">Awards</button>
+            <button data-target="contact">Contact Us</button>
+        </nav>
+    </header>
+    <section id="carousel">
+        <div class="carousel-container">
+            <!-- Cada elemento del carrusel tiene un índice único -->
+            <div class="carousel-item" data-index="0">
+                <h2>Welcome to Kaluga Games Studio</h2>
+                <p>Innovative games for every gamer!</p>
+            </div>
+            <div class="carousel-item" data-index="1">
+                <h2>Our Latest Releases</h2>
+                <p>Check out our newest games and updates!</p>
+            </div>
+            <div class="carousel-item" data-index="2">
+                <h2>Join Our Community</h2>
+                <p>Be part of our ever-growing player base.</p>
+            </div>
+        </div>
+        <!-- Botones de navegación -->
+        <div class="carousel-controls">
+            <button id="prev-btn" class="prev-btn" aria-label="Previous">
+                &#9664;
+            </button>
+            <button id="next-btn" class="next-btn" aria-label="Next">
+                &#9654;
+            </button>
+        </div>
+    </section>
+
+    <section id="games-preview">
+        <h2>Our Games</h2>
+        <div class="game-cards">
+            <div class="game-card active">
+                <h3>Game Title 1</h3>
+                <p>Game description<br />Max two lines</p>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 2</h3>
+                <p>Game description<br />Max two lines</p>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 3</h3>
+                <p>Game description<br />Max two lines</p>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 4</h3>
+                <p>Game description<br />Max two lines</p>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 5</h3>
+                <p>Game description<br />Max two lines</p>
+            </div>
+            <div class="game-card">
+                <h3>Game Title 6</h3>
+                <p>Game description<br />Max two lines</p>
+            </div>
+        </div>
+    </section>
+    <section id="awards">
+        <h2>Awards</h2>
+        <div class="awards-container">
+            <div class="award-card">
+                <div class="award-badge">Award</div>
+                <div class="award-icon"></div>
+                <h3>Title</h3>
+                <p>Date</p>
+            </div>
+            <div class="award-card">
+                <div class="award-badge">Award</div>
+                <div class="award-icon"></div>
+                <h3>Title</h3>
+                <p>Date</p>
+            </div>
+            <div class="award-card">
+                <div class="award-badge">Award</div>
+                <div class="award-icon"></div>
+                <h3>Title</h3>
+                <p>Date</p>
+            </div>
+            <div class="award-card">
+                <div class="award-badge">Award</div>
+                <div class="award-icon"></div>
+                <h3>Title</h3>
+                <p>Date</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <textarea id="message" rows="5" placeholder="Write your message here..."></textarea>
+            <button id="send-button">Send</button>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,469 @@
+:root {
+  --primary-purple: #601671;
+  --secondary-purple: #9e6cd8;
+  --background-purple: #1b0320;
+  --gold-accent: #f2a900;
+  --white: #ffffff;
+}
+
+body {
+  font-family: "Fredoka", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-purple);
+  color: var(--white);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw 4vw;
+  /* Ajusta el padding relativo al ancho de la pantalla */
+  background-color: var(--primary-purple);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+header .logo img {
+  height: 8vh;
+  /* Altura ajustada en base al alto de la pantalla */
+}
+
+header .nav-buttons {
+  display: flex;
+  gap: 3vw;
+  /* Espaciado relativo entre botones */
+}
+
+header .nav-buttons button {
+  background-color: var(--gold-accent);
+  color: var(--white);
+  border: none;
+  padding: 1vw 2vw;
+  /* Padding relativo */
+  border-radius: 0.5vw;
+  /* Bordes redondeados relativos */
+  font-size: 1.2vw;
+  /* Tamaño de fuente relativo */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+header .nav-buttons button:hover {
+  background-color: var(--secondary-purple);
+  transform: scale(1.05);
+}
+
+header .nav-buttons button:active {
+  transform: scale(1);
+}
+
+/* Carousel */
+#carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--primary-purple);
+  color: var(--white);
+  text-align: center;
+  margin-top: 10vh;
+  /* Espacio para el header fijo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor de los ítems del carrusel */
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 50vh;
+  /* Altura relativa al viewport */
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+  perspective: 1000px;
+  /* Efecto de profundidad */
+}
+
+/* Ítem del carrusel */
+.carousel-item {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5%;
+  background: var(--primary-purple);
+  border-radius: 1vw;
+  transform-origin: center;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  position: absolute;
+  /* Permite posicionar los elementos en capas */
+  opacity: 0;
+}
+
+/* Elemento activo */
+.carousel-item.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 2;
+}
+
+/* Elemento anterior (izquierda) */
+.carousel-item.prev {
+  transform: translateX(-100%) scale(0.9);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* Elemento siguiente (derecha) */
+.carousel-item.next {
+  transform: translateX(100%) scale(0.9);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* Estilos de los títulos */
+.carousel-item h2 {
+  font-size: 2.5vw;
+  margin-bottom: 1vh;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.carousel-item p {
+  font-size: 1.5vw;
+  color: var(--white);
+}
+
+/* Controles del carrusel */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 2vw;
+  z-index: 10;
+}
+
+.carousel-controls button {
+  background: var(--gold-accent);
+  border: none;
+  color: var(--white);
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  font-size: 1.5vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  background-color: var(--secondary-purple);
+  transform: scale(1.1);
+}
+
+.carousel-controls button:active {
+  transform: scale(0.95);
+}
+
+/* Adaptaciones responsivas */
+@media (max-width: 768px) {
+  #carousel {
+    margin-top: 8vh;
+    height: 40vh;
+  }
+
+  .carousel-item h2 {
+    font-size: 5vw;
+  }
+
+  .carousel-item p {
+    font-size: 3.5vw;
+  }
+
+  .carousel-controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+.carousel-controls button:hover {
+  background-color: var(--secondary-purple);
+  transform: scale(1.1);
+}
+
+/* Sección de juegos */
+#games-preview {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--background-purple);
+  color: var(--white);
+}
+
+#games-preview h2 {
+  font-size: 2.5rem;
+  color: var(--gold-accent);
+}
+
+/* Contenedor de tarjetas */
+.game-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+  margin-top: 20px;
+  perspective: 1000px;
+  /* Añade profundidad para efectos 3D */
+}
+
+/* Tarjeta individual */
+.game-card {
+  position: absolute;
+  width: 250px;
+  height: 350px;
+  background: var(--primary-purple);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transform-origin: center center;
+}
+
+/* Tarjetas no activas */
+.game-card:not(.active) {
+  opacity: 0.5;
+  transform: scale(0.8);
+}
+
+/* Tarjeta activa */
+.game-card.active {
+  opacity: 1;
+  z-index: 2;
+  transform: translateX(0) scale(1);
+}
+
+/* Tarjetas a la izquierda */
+.game-card.left {
+  transform: translateX(-90%) scale(0.9);
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* Tarjetas a la derecha */
+.game-card.right {
+  transform: translateX(90%) scale(0.9);
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* Centrar todo el contenedor */
+.game-cards {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+/* Estilo del texto en las tarjetas */
+.game-card h3 {
+  font-size: 1.5rem;
+  color: var(--gold-accent);
+  margin-bottom: 1rem;
+}
+
+.game-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .game-card {
+    width: 200px;
+    height: 280px;
+  }
+
+  .game-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .game-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Sección de premios */
+#awards {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: var(--background-purple);
+  /* Color de fondo */
+  color: var(--white);
+}
+
+#awards h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--gold-accent);
+  /* Resalta el título */
+}
+
+/* Contenedor de tarjetas */
+.awards-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Tarjeta individual */
+.award-card {
+  background-color: var(--primary-purple);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 180px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.award-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Badge del premio */
+.award-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--gold-accent);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Icono del premio */
+.award-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--secondary-purple);
+  /* Color gris claro */
+  margin-bottom: 15px;
+}
+
+/* Títulos y fecha */
+.award-card h3 {
+  font-size: 1.2rem;
+  color: var(--gold-accent);
+  margin-bottom: 10px;
+}
+
+.award-card p {
+  font-size: 0.9rem;
+  color: var(--white);
+}
+
+/* Sección de contacto */
+#contact {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: var(--primary-purple);
+  color: var(--white);
+}
+
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--gold-accent);
+}
+
+/* Contenedor de formulario */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Caja de texto */
+#message {
+  width: 100%;
+  max-width: 500px;
+  height: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--secondary-purple);
+  border-radius: 8px;
+  resize: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  background-color: var(--background-purple);
+  color: var(--white);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#message:focus {
+  border-color: var(--gold-accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Botón de enviar */
+#send-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--white);
+  background-color: var(--gold-accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#send-button:hover {
+  background-color: var(--secondary-purple);
+  transform: scale(1.05);
+}
+
+#send-button:active {
+  transform: scale(1);
+}
