@@ -4,11 +4,12 @@ const path = require("path");
 const app = express();
 
 // Configura el servidor para servir archivos estáticos desde 'public'
-app.use(express.static(path.join(__dirname, "public")));
+const publicPath = path.resolve(__dirname, "../public");
+app.use(express.static(publicPath));
 
 // Ruta principal para 'index.html'
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/index.html'));
 });
 
 // Inicia el servidor
